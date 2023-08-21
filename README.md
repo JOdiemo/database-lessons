@@ -100,7 +100,8 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-- install PostgreSQL 
+- pgAdmin or
+- SQL shell (psql)
 
 ### Setup
 
@@ -109,6 +110,7 @@ Clone this repository to your desired folder:
  - cd database-lessons
    
  ### Install
+  -Install the latest version of PostgreSQL
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
