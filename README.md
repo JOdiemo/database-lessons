@@ -76,9 +76,6 @@ Apart from building the data structure, there are challenges with tasks that req
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
-
-> Describe between 1-3 key features of the application.
-
 - **[Create database]**
 - **[Create Table]**
 - **[Insert into table]**
@@ -89,7 +86,7 @@ Apart from building the data structure, there are challenges with tasks that req
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](<replace-with-your-deployment-URL>)
+- [Live Demo Link](Coming Soon)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,22 +100,15 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
+- install PostgreSQL 
+
 ### Setup
 
 Clone this repository to your desired folder:
-
-<!--
-Example commands:
-
-```sh
-  cd database-lessons
-  git clone git@github.com/JOdiemo/database-lessons.git
-```
---->
-
-### Install
-
-Install this project with:
+ - git clone git@github.com/JOdiemo/database-lessons.git
+ - cd database-lessons
+   
+ ### Install
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -169,12 +159,6 @@ If you like this project do not hesitate to give it a star...
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank Microvese inc for giving us this rare opportunity to become Full-Stack developers
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ <a name="faq"></a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
