@@ -13,6 +13,8 @@ SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 /*Day Two */
 
 /* Transaction - BEGIN, UPDATE and COMMIT */
+
+/*UPDATE*/
 BEGIN TRANSACTION;
 UPDATE animals SET species='unspecified';
 
@@ -29,3 +31,33 @@ UPDATE animals SET species='pokemon'
 COMMIT TRANSACTION;
 
 SELECT * FROM animals ;
+
+/*Delete and Savepoint*/
+
+BEGIN TRANSACTION;
+
+SAVEPOINT SP1;
+ 
+ DELETE FROM animals WHERE date_of_birth > '2022-01-01';
+
+SAVEPOINT SP2;
+
+UPDATE animals SET weight_kg = weight_kg * -1;
+
+ROLLBACK TRANSACTION TO SP1;
+
+UPDATE animals set weight_kg = weight_kg * -1 
+	WHERE weight_kg < 0;
+	
+COMMIT TRANSACTION;
+ 
+SELECT * FROM animals 
+
+/*Questions*/
+
+SELECT count(*) FROM animals;
+SELECT count(*) FROM animals WHERE escape_attempts = 0;
+SELECT AVG(weight_kg) FROM animals;
+SELECT neutered, MAX(escape_attempts) FROM animals GROUP BY neutered;
+SELECT species, MIN(weight_kg) as Minimum, MAX(weight_kg) as Maximum FROM animals GROUP BY species;
+SELECT species, AVG(escape_attempts) FROM animals where date_of_birth BETWEEN '1990-01-01' AND '2000-12-31' GROUP BY species;
