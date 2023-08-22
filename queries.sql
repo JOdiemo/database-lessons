@@ -21,12 +21,16 @@ UPDATE animals SET species='unspecified';
 SELECT species FROM animals;
 ROLLBACK TRANSACTION;
 SELECT species FROM animals;
+END TRANSACTION;
 
+BEGIN TRANSACTION;
 UPDATE animals SET species='digimon'
 	WHERE name::text LIKE '%mon';
 	
 UPDATE animals SET species='pokemon'
 	WHERE species ISNULL;
+
+SELECT * FROM animals ;
 	
 COMMIT TRANSACTION;
 
@@ -34,6 +38,17 @@ SELECT * FROM animals ;
 
 /*Delete and Savepoint*/
 
+/*Delete all and Rollback*/
+BEGIN TRANSACTION;
+SELECT * FROM animals;
+
+DELETE FROM animals;
+
+ROLLBACK;
+
+SELECT * FROM animals;
+
+/*Savepoint*/
 BEGIN TRANSACTION;
 
 SAVEPOINT SP1;
@@ -44,7 +59,7 @@ SAVEPOINT SP2;
 
 UPDATE animals SET weight_kg = weight_kg * -1;
 
-ROLLBACK TRANSACTION TO SP1;
+ROLLBACK TRANSACTION TO SP2;
 
 UPDATE animals set weight_kg = weight_kg * -1 
 	WHERE weight_kg < 0;
