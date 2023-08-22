@@ -106,7 +106,7 @@ In order to run this project you need:
 ### Setup
 
 Clone this repository to your desired folder:
- - git clone git@github.com/JOdiemo/database-lessons.git
+ - git clone https://github.com/JOdiemo/database-lessons.git
  - cd database-lessons
    
  ### Install
