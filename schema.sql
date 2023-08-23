@@ -1,6 +1,5 @@
 /* Database schema to keep the structure of the entire database. */
-
-
+/*Day One*/
 CREATE TABLE animals(
    id serial primary key,
    name CHAR(20),
@@ -9,5 +8,8 @@ CREATE TABLE animals(
    neutered BOOL,
    weight_kg DECIMAL   
 ); 
-    
+
+/*Day Two*/
+ALTER TABLE animals
+    ADD species varchar(20);   
 
