@@ -82,14 +82,6 @@ Apart from building the data structure, there are challenges with tasks that req
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Live Demo Link](Coming Soon)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -106,8 +98,8 @@ In order to run this project you need:
 ### Setup
 
 Clone this repository to your desired folder:
- - git clone https://github.com/JOdiemo/database-lessons.git
- - cd database-lessons
+ - git clone https://github.com/JOdiemo/vet-clinic.git
+ - cd vet-clinic
    
  ### Install
   -Install the latest version of PostgreSQL
@@ -141,7 +133,7 @@ Clone this repository to your desired folder:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/JOdiemo/database-lessons/issues/).
+Feel free to check the [issues page](https://github.com/JOdiemo/vet-clinic/issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -158,7 +150,7 @@ If you like this project do not hesitate to give it a star...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microvese inc for giving us this rare opportunity to become Full-Stack developers
+I would like to thank Microvese inc for giving me this rare opportunity to become a Full-Stack developer.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
