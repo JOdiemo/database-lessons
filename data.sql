@@ -27,6 +27,13 @@ VALUES
  (6, 'Jodie Whittaker',38);
 select * from owners
 
+INSERT INTO species (id, name)
+VALUES
+(1, 'Pokeman'),
+(2, 'Digimon');
+
+SELECT * from species
+
 UPDATE animals SET species_id = 2 
  WHERE name::text LIKE '%mon';
 SELECT * FROM animals
@@ -34,7 +41,6 @@ SELECT * FROM animals
  UPDATE animals SET species_id = 1 
   WHERE name::text NOT LIKE '%mon';
 SELECT * FROM animals
-
  
 UPDATE animals SET owner_id = 1 	WHERE name = 'Agumon';
 UPDATE animals SET owner_id = 2 	WHERE name = 'Gabumon';
