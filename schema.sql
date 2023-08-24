@@ -20,13 +20,11 @@ CREATE TABLE owners(
   full_name VARCHAR(50),
   age INT  
 );
-SELECT * FROM owners
 
 CREATE TABLE species(
   id SERIAL PRIMARY KEY,
   name VARCHAR(50)  
 );
-SELECT * FROM species
 
 ALTER TABLE animals
     ADD COLUMN IF NOT EXISTS owner_id
@@ -38,8 +36,6 @@ ALTER TABLE animals
 	REFERENCES species(id)
 	ON DELETE CASCADE;	
 
-select * from animals
-
 ALTER TABLE animals
     ADD COLUMN IF NOT EXISTS owner_id
 	INT;
@@ -49,5 +45,3 @@ ALTER TABLE animals
 	FOREIGN KEY (owner_id)
 	REFERENCES owners(id)
 	ON DELETE CASCADE;	
-
-select * from animals
