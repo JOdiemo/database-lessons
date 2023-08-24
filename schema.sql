@@ -66,8 +66,7 @@ SELECT * FROM vets
 --Create bridge table specializations
 CREATE TABLE specializations (
 	vet_id INT NOT NULL, 
-	species_id INT NOT NULL, 
-	PRIMARY KEY (vet_id, species_id),
+	species_id INT NOT NULL, 	
 	CONSTRAINT fk_vet FOREIGN KEY (vet_id) 
 	REFERENCES vets(id),
 	CONSTRAINT fk_species FOREIGN KEY(species_id) 
@@ -78,8 +77,7 @@ SELECT * FROM specializations
 CREATE TABLE visits (
 	vet_id INT NOT NULL, 
 	animals_id INT NOT NULL, 
-	date_of_visit DATE,
-	PRIMARY KEY (vet_id, animals_id),
+	date_of_visit DATE,	
 	CONSTRAINT fk_vet FOREIGN KEY (vet_id) 
 	REFERENCES vets(id),
 	CONSTRAINT fk_animals FOREIGN KEY(animals_id) 
