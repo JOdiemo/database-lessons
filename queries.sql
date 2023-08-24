@@ -100,3 +100,19 @@ SELECT * FROM animals INNER JOIN owners ON animals.owner_id = owners.id where ow
 SELECT owners.full_name, COUNT(animals.name) as animal_number 
 FROM animals JOIN owners ON animals.owner_id = owners.id GROUP BY owners.full_name 
 ORDER BY animal_number DESC LIMIT 1;
+
+/*Day Four*/
+
+/*Questions*/
+
+--Who was the last animal seen by William Tatcher?
+select animals.name, vets.name, visits.date_of_visit FROM animals 
+	INNER JOIN visits ON animals.id = visits.animals_id
+	LEFT JOIN vets ON vets.id = visits.vet_id 
+	WHERE vets.id = 5 ORDER BY visits.date_of_visit DESC LIMIT 1
+--How many different animals did Stephanie Mendez see?
+select COUNT(animals.name), vets.name FROM animals 
+	INNER JOIN visits ON animals.id = visits.animals_id
+	JOIN vets ON visits.vet_id = vets.id
+	WHERE vets.id = 7 GROUP BY vets.name
+--List all vets and their specialties, including vets with no specialties.
