@@ -66,24 +66,5 @@ CREATE TABLE vets(
 
 SELECT * FROM vets
 
---Create bridge table specializations
-CREATE TABLE specializations (
-	vet_id INT NOT NULL, 
-	species_id INT NOT NULL, 
-	CONSTRAINT fk_vet FOREIGN KEY (vet_id) 
-	REFERENCES vets(id),
-	CONSTRAINT fk_species FOREIGN KEY(species_id) 
-	REFERENCES species(id));
-SELECT * FROM specializations
-	
---Create bridge table visits	
-CREATE TABLE visits (
-	vet_id INT NOT NULL, 
-	animals_id INT NOT NULL, 
-	PRIMARY KEY (vet_id, animals_id),
-	CONSTRAINT fk_vet FOREIGN KEY (vet_id) 
-	REFERENCES vets(id),
-	CONSTRAINT fk_animals FOREIGN KEY(animals_id) 
-	REFERENCES animals(id));
-SELECT * FROM visits
-
+-- Insert the following data for vets:
+INSERT INTO vets (name,age,date_of_graduation) VALUES ('William Tatcher' , 45 , '2000-04-23'),('Maisy Smith' , 26 , '2019-01-17'),('Stephanie Mendez' , 64 , '1981-05-04'),('Jack Harkness' , 38 , '2008-06-08');
