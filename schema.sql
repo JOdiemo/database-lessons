@@ -78,6 +78,7 @@ SELECT * FROM specializations
 CREATE TABLE visits (
 	vet_id INT NOT NULL, 
 	animals_id INT NOT NULL, 
+	date_of_visit DATE,
 	PRIMARY KEY (vet_id, animals_id),
 	CONSTRAINT fk_vet FOREIGN KEY (vet_id) 
 	REFERENCES vets(id),
