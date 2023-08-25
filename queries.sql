@@ -109,21 +109,22 @@ ORDER BY animal_number DESC LIMIT 1;
 select animals.name, vets.name, visits.date_of_visit FROM animals 
 	INNER JOIN visits ON animals.id = visits.animals_id
 	LEFT JOIN vets ON vets.id = visits.vet_id 
-	WHERE vets.id = 5 ORDER BY visits.date_of_visit DESC LIMIT 1
+	WHERE vets.name = 'William Tatcher' 
+	ORDER BY visits.date_of_visit DESC LIMIT 1;
 --How many different animals did Stephanie Mendez see?
 select COUNT(animals.name), vets.name FROM animals 
 	INNER JOIN visits ON animals.id = visits.animals_id
 	JOIN vets ON visits.vet_id = vets.id
-	WHERE vets.id = 7 GROUP BY vets.name
+	WHERE vets.name = 'Stephanie Mendez' 
+	GROUP BY vets.name
 --List all vets and their specialties, including vets with no specialties.
 SELECT vets.name, species.name FROM vets
 	LEFT JOIN specializations ON vets.id = specializations.vet_id
 	LEFT JOIN species ON specializations.species_id = species.id  
---List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
 SELECT animals.name, vets.name, visits.date_of_visit FROM animals
 	inner JOIN visits ON animals.id = visits.vet_id
 	RIGHT JOIN vets ON vets.id = visits.vet_id 
-	WHERE vets.id= 7 AND 
+	WHERE vets.name = 'Stephanie Mendez' AND 
 	date_of_visit BETWEEN '2020-04-01' AND '2020-08-30'
 	ORDER BY vets.name
 --What animal has the most visits to vets?
@@ -134,7 +135,8 @@ SELECT animals.name, COUNT(visits.animals_id) as num_visits FROM animals
 --Who was Maisy Smith's first visit?
 SELECT animals.name, vets.name, visits.date_of_visit FROM animals
 	inner JOIN visits ON animals.id = visits.animals_id
-	INNER JOIN vets ON visits.vet_id = vets.id  WHERE vets.id = 6 
+	INNER JOIN vets ON visits.vet_id = vets.id  
+	WHERE vets.name = 'Maisy Smith' 
 	ORDER BY visits.date_of_visit ASC LIMIT 1
 --Details for most recent visit: animal information, vet information, and date of visit.
 SELECT animals.name, vets.name, visits.date_of_visit FROM animals
@@ -153,6 +155,6 @@ SELECT species.name, COUNT(*) AS num_visits FROM visits
 	JOIN vets ON visits.vet_id = vets.id 
 	JOIN animals ON visits.animals_id = animals.id 
 	JOIN species ON animals.species_id = species.id 
-	WHERE vets.id = 6 
+	WHERE vets.name = 'Maisy Smith' 
 	GROUP BY species.name 
-	ORDER BY num_visits DESC LIMIT 1;
+	ORDER BY num_visits DESC LIMIT 1
