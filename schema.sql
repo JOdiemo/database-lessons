@@ -20,13 +20,11 @@ CREATE TABLE owners(
   full_name VARCHAR(50),
   age INT  
 );
-SELECT * FROM owners
 
 CREATE TABLE species(
   id SERIAL PRIMARY KEY,
   name VARCHAR(50)  
 );
-SELECT * FROM species
 
 ALTER TABLE animals
     ADD COLUMN IF NOT EXISTS owner_id
@@ -37,9 +35,6 @@ ALTER TABLE animals
 	FOREIGN KEY (species_id)
 	REFERENCES species(id)
 	ON DELETE CASCADE;	
-
-select * from animals
-
 ALTER TABLE animals
     ADD COLUMN IF NOT EXISTS owner_id
 	INT;
@@ -50,4 +45,30 @@ ALTER TABLE animals
 	REFERENCES owners(id)
 	ON DELETE CASCADE;	
 
-select * from animals
+/*Day Four*/
+--Create a table named vets with the following columns
+CREATE TABLE vets(
+   id SERIAL PRIMARY KEY,
+   name VARCHAR(50),
+   age INT,
+   date_of_graduation DATE
+);
+
+--Create bridge table specializations
+CREATE TABLE specializations (
+	vet_id INT NOT NULL, 
+	species_id INT NOT NULL, 	
+	CONSTRAINT fk_vet FOREIGN KEY (vet_id) 
+	REFERENCES vets(id),
+	CONSTRAINT fk_species FOREIGN KEY(species_id) 
+	REFERENCES species(id));
+	
+--Create bridge table visits	
+CREATE TABLE visits (
+	vet_id INT NOT NULL, 
+	animals_id INT NOT NULL, 
+	date_of_visit DATE,	
+	CONSTRAINT fk_vet FOREIGN KEY (vet_id) 
+	REFERENCES vets(id),
+	CONSTRAINT fk_animals FOREIGN KEY(animals_id) 
+	REFERENCES animals(id));
