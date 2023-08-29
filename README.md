@@ -116,6 +116,11 @@ Clone this repository to your desired folder:
 - Twitter: [@JorumOdiemo](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/jorum-odiemo/)
 
+👤 **Author2**
+- GitHub: [@Aqurds](https://github.com/Aqurds)
+- Twitter: [@Aqurds](https://twitter.com/Aqurds)
+- LinkedIn: [omaraqurds](https://linkedin.com/in/omaraqurds)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
