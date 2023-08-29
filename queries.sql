@@ -158,3 +158,14 @@ SELECT species.name, COUNT(*) AS num_visits FROM visits
 	WHERE vets.name = 'Maisy Smith' 
 	GROUP BY species.name 
 	ORDER BY num_visits DESC LIMIT 1
+
+/*Week 2*/
+--Day 1
+CREATE INDEX visits_asc ON visits(animals_id ASC); ---Create an index to reduce eecution time
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animals_id = 4; -- Recheck results
+
+CREATE INDEX visits_vets_asc ON visits(vets_id ASC);
+EXPLAIN ANALYZE SELECT * FROM visits where vets_id = 2;
+CREATE INDEX owners_email_desc ON owners(email DESC);
+EXPLAIN ANALYZE SELECT * FROM owners
+where email = 'owner_18327@mail.com'

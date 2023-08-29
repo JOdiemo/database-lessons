@@ -72,3 +72,8 @@ CREATE TABLE visits (
 	REFERENCES vets(id),
 	CONSTRAINT fk_animals FOREIGN KEY(animals_id) 
 	REFERENCES animals(id));
+/*Week 2*/
+**Database Performance**
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
