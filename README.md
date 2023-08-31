@@ -60,7 +60,7 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - clinic employees
 - visits
 Apart from building the data structure, there are challenges with tasks that require SQL queries to answer specific questions.
-
+-Add a database schema diagram
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -71,6 +71,9 @@ Apart from building the data structure, there are challenges with tasks that req
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   </ul>
+  <ul>
+    <li><a href="https://www.lucidchart.com/pages/">LucidCharts</a></li>
+  </ul>
 </details>
 
 <!-- Features -->
@@ -79,6 +82,7 @@ Apart from building the data structure, there are challenges with tasks that req
 - **[Create database]**
 - **[Create Table]**
 - **[Insert into table]**
+- **[Database Schema Diagram]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
