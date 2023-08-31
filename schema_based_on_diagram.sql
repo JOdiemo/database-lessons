@@ -1,53 +1,67 @@
-/* Database schema to keep the structure of the entire database. */
-CREATE TABLE animals(
-   id serial primary key,
-   name CHAR(20),
-   date_of_birth DATE,
-   escape_attempt INT,
-   neutered BOOL,
-   weight_kg DECIMAL   
-); 
-
-CREATE TABLE owners(
-  id SERIAL PRIMARY KEY,
-  full_name VARCHAR(50),
-  age INT  
+CREATE TABLE patients(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR (100),
+    date_of_birth DATE,
 );
 
-CREATE TABLE species(
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(50)  
+CREATE TABLE treatments(
+    id SERIAL PRIMARY KEY,
+    type VARCHAR (100),
+    name VARCHAR (100),
 );
 
-CREATE TABLE vets(
-   id SERIAL PRIMARY KEY,
-   name VARCHAR(50),
-   age INT,
-   date_of_graduation DATE
+CREATE TABLE medical_histories(
+    id SERIAL PRIMARY KEY,
+    admitted_at TIMESTAMP,
+    patient_id INT,
+    status VARCHAR (100),
+    CONSTRAINT fk_patient_id FOREIGN KEY(patient_id) REFERENCES patients(id)
 );
 
-CREATE TABLE specializations (
-	vet_id INT NOT NULL, 
-	species_id INT NOT NULL, 	
-	CONSTRAINT fk_vet FOREIGN KEY (vet_id) 
-	REFERENCES vets(id),
-	CONSTRAINT fk_species FOREIGN KEY(species_id) 
-	REFERENCES species(id));
-	
-CREATE TABLE visits (
-	vet_id INT NOT NULL, 
-	animals_id INT NOT NULL, 
-	date_of_visit DATE,	
-	CONSTRAINT fk_vet FOREIGN KEY (vet_id) 
-	REFERENCES vets(id),
-	CONSTRAINT fk_animals FOREIGN KEY(animals_id) 
-	REFERENCES animals(id));
+CREATE TABLE invoices (
+    id SERIAL PRIMARY KEY,
+    total_amount DECIMAL(10,2),
+    generated_at TIMESTAMP,
+    payed_at TIMESTAMP,
+    medical_history_id INT,
+    CONSTRAINT fk_medical_id FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id),
+);
 
+CREATE TABLE invoice_items (
+    id SERIAL PRIMARY KEY,
+    unit_price DECIMAL(10,2),
+    quantity INT,
+    total_price DECIMAL(10,2),
+    invoice_id INT,
+    treatment_id INT,
+    CONSTRAINT fk_invoice_id FOREIGN KEY(invoice_id) REFERENCES invoices(id),
+    CONSTRAINT fk_treatment_id FOREIGN KEY(treatment_id) REFERENCES treatments(id),
+);
 
---Create a file named schema_based_on_diagram.sql where you implement the database from the diagram.
---Join tables from many-to-many relationships might not appear in the diagram, but you still need them.
---Remember to add the FK indexes.
+CREATE TABLE medical_histories_treatments (
+    medical_histories_id INT,
+    treatments_id INT,
+    PRIMARY KEY(medical_histories, treatment_id),
+    CONSTRAINT fk_medical_histories_id FOREIGN KEY(medical_histories_id) REFERENCES medical_histories(id),
+    CONSTRAINT fk_treatment_id FOREIGN KEY(treatments_id) REFERENCES treatments(id),
+);
 
---Data Table Schema is at the below link
+-- create index on medical_history table
+CREATE INDEX idx_patient_id ON medical_histories(patient_id);
 
-https://lucid.app/lucidchart/034f07a9-ac76-448c-a339-aa7dfdeb0d38/edit?viewport_loc=-12136%2C-11167%2C1916%2C830%2C0_0&invitationId=inv_789b487f-c1ec-4a01-9545-ea7ae10fe1d7
+-- create index on invoice table
+CREATE INDEX idx_medical_history ON invoices(medical_history_id);
+
+-- create index on invoice_items table on invoice column
+CREATE INDEX idx_invoice_id ON invoice_items(invoice_id);
+
+-- create index on treatment column
+CREATE INDEX idx_treatment_id ON invoice_items(treatment_id);
+
+-- create index on medical_histories_treatments
+CREATE INDEX idx_medical_histories_treatments
+  ON medical_histories_treatments(medical_histories_id);
+  
+-- create index on treatments_id
+CREATE INDEX idx_treatments_id
+  ON medical_histories_treatments(treatments_id);
